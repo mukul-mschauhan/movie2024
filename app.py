@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # setup the api
-genai.configure(api_key = os.getenv("GOOGLE-API-KEY"))
+#genai.configure(api_key = os.getenv("GOOGLE-API-KEY"))
 
 # Design the Page
 st.title("Movie Recommendation System using Gemini-Pro")
@@ -21,7 +21,7 @@ template = PromptTemplate(input_variables = ['user_input'],
                           are the recommendations for {user_input}:\n''')
 
 # Initialise the Model
-llm = ChatGoogleGenerativeAI(model = "gemini-pro")
+llm = ChatGoogleGenerativeAI(model = "gemini-pro", api_key = os.getenv("GOOGLE-API-KEY"))
 
 if user_input:
     prompt = template.format(user_input=user_input)
